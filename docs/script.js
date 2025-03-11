@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({prompt: postjson.value}),
+            body: JSON.stringify({prompt: postjson.innerText}),
         }).then((res) => res.json()).then((data) => {output.value = data.output});
     }
 });
