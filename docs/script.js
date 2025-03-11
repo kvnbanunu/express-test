@@ -30,6 +30,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({prompt: postjson.value}),
-        }).then((res) => res.json()).then((data) => {output.value = data});
+        }).then((res) => res.json()).then((data) => {output.value = data.output});
     }
 });
