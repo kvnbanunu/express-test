@@ -29,7 +29,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({prompt: postjson.innerText}),
-        }).then((res) => res.json()).then((data) => {output.value = data.output});
+            body: JSON.stringify({prompt: postjson.value}),
+        }).then((res) => res.json()).then((data) => {
+                console.log(postjson.value);
+                console.log(data.toString());
+                output.value = data.output;
+            });
     }
 });

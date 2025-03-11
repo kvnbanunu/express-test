@@ -23,9 +23,8 @@ app.get('/json', (req, res) => {
 });
 
 app.post('/json', (req, res) => {
-    const body = req.body;
-    console.log(`Received post /json body: ${'' + body}`);
-    res.json({output: body});
+    console.log(`Received post /json body: ${'' + req.body}`);
+    res.json({output: req.body});
 });
 
 app.get('/cors', (req, res) => {
