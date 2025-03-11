@@ -1,25 +1,18 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
-app.use(function(){
-    res.setHeader('Access-Control-Allow-Origin', 'https://kvnbanunu.github.io');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-
-    // Handle preflight requests
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200); // No Content
-    }
-
-    next();
-});
+app.use(cors({
+    origin: 'https://kvnbanunu.github.io',
+    methods: 'GET,HEAD,POST,DELETE,PUT,OPTIONS',
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 200,
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-
-app.options('*', cors(corsOptions));
 
 app.get('/', (req, res) => {
     res.json('express test');
