@@ -12,7 +12,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     res.json('express test');
@@ -23,8 +23,8 @@ app.get('/json', (req, res) => {
 });
 
 app.post('/json', (req, res) => {
-    console.log(`Received post /json body: ${'' + req.body}`);
-    res.json({output: req.body});
+    console.log(`Received post /json body: ${req.body.prompt}`);
+    res.json({output: req.body.prompt});
 });
 
 app.get('/cors', (req, res) => {
